@@ -7,7 +7,7 @@ import (
 	"syscall"
 )
 
-func testutils() {
+func Testutils() {
 
 	url := `https://www.youtube.com/watch?v=Wz0H8HFkI9U`
 	progress := `--progress`

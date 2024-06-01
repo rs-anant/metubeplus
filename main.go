@@ -1,8 +1,8 @@
-package main
+package metubeplus
 
 import "fmt"
-import "github.com/rsanantmishra/metubeplus/testutils"
 
 func main() {
 	fmt.Println("hi")
+	Testutils()
 }
