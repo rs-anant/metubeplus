@@ -5,18 +5,36 @@ import (
 	"os/exec"
 	"strings"
 	"syscall"
-	"time"
 )
+
+type Download struct {
+	URL           string
+	Progress      string
+	Filepath      string
+	Channel       string
+	Title         string
+	Description   string
+	Extension     string
+	Duration      string
+	Domain        string
+	OriginalURL   string
+	PlaylistTitle string
+	PlaylistCount string
+	PlaylistIndex string
+	Thumbnail     string
+	Format        string
+}
 
 func Testutils() {
 
-	url := `https://www.youtube.com/watch?v=GW2g-5WALrc`
+	//url := `https://www.youtube.com/watch?v=GW2g-5WALrc`
+	url := `https://www.youtube.com/watch?v=GW2g-5WALrc&list=PLFKeDWeuu3BZEBcRmolX6BDiFhK-GhCsd`
 	progress := `--progress`
 	progressDelta := `--progress-delta 1` //seconds
 	filepath := `--print after_move:filepath`
 	channel := `--print after_move:channel`
 	title := `--print after_move:title`
-
+	description := `--print after_move:description`
 	ext := `--print after_move:ext`
 	duration := `--print after_move:duration`
 	webpage_url_domain := `--print after_move:webpage_url_domain`
@@ -25,12 +43,11 @@ func Testutils() {
 	playlist_title := `--print after_move:playlist_title`
 	playlist_count := `--print after_move:playlist_count`
 	playlist_index := `--print after_move:playlist_index`
-	thumbnail := `--write-thumbnail`
-	format := `--print format`
-	epoch := `--print epoch`
+	//thumbnail := `--write-thumbnail`
+	//format := `--print format`
 
 	//infojson := `--write-info-json`
-	skip_download := `--skip-download`
+	//skip_download := `--skip-download`
 
 	command := `./testutils/yt-dlp_x86.exe`
 	space := " "
@@ -39,7 +56,7 @@ func Testutils() {
 	args = append(args, filepath)
 	args = append(args, channel)
 	args = append(args, title)
-	//args = append(args, description)
+	args = append(args, description)
 	args = append(args, ext)
 	args = append(args, duration)
 	args = append(args, webpage_url_domain)
@@ -48,17 +65,16 @@ func Testutils() {
 	args = append(args, playlist_title) //for playlists
 	args = append(args, playlist_count) //for playlists
 	args = append(args, playlist_index) //for playlists
-	args = append(args, skip_download)  //for metadata only
-	args = append(args, thumbnail)
-	args = append(args, format)
-	args = append(args, epoch) // for timestamp time.Now().Unix() GMT TIME
+	//args = append(args, skip_download)  //for metadata only
+	//args = append(args, thumbnail)
+	//args = append(args, format)
 
-	fmt.Println("Anant here", time.Now().Unix())
+	// for timestamp use time.Now().Unix() GMT TIME for CreatedDate
 
 	//args = append(args, infojson)
 	args = append(args, progressDelta)
 	args = append(args, progress)
-	args = append(args, "--write-auto-subs")
+	//args = append(args, "--write-auto-subs")
 
 	arguments := strings.Join(args, space)
 	cmd := exec.Command(command)
