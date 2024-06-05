@@ -22,7 +22,7 @@
 - custom names
 - custom command
 
-[UI is similar to briefkasten]
+[UI layout is similar to briefkasten]
 - landing page shows all Videos
 	- Downloader
 	- All Videos (Scroll further down)
