@@ -24,6 +24,6 @@ VALUES('Video') UNION
 VALUES('Thumbnail') UNION 
 VALUES('Subtitles');
 
-INSERT INTO tblStreamType (Stream)
-VALUES('Audio') UNION 
-VALUES('Video');
+-- INSERT INTO tblStreamType (Stream)
+-- VALUES('Audio') UNION 
+-- VALUES('Video');
