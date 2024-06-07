@@ -62,5 +62,17 @@ const (
 	PostLive   = iota
 )
 
+type Formats struct {
+	Id         int
+	Format     string
+	StreamType string //Audio or Video
+}
+
+type VideoFormat struct {
+	Id       int
+	VideoId  int
+	FormatId int
+}
+
 //Source - yt-dlp only
 //Operations - DOWNLOAD, READ, DELETE
