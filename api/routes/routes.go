@@ -1,21 +1,17 @@
 package router
 
 import (
+	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/rsanantmishra/metubeplus/api/handler"
-
-	"github.com/gofiber/fiber/v2" // swagger handler
-	"github.com/gofiber/swagger"
-	_ "github.com/rsanantmishra/metubeplus/cmd/docs"
 )
 
 func SetupRoutes(app *fiber.App) {
 
 	//Middlewares
-	//api := app.Group("/api", logger.New())
-	app.Get("/swagger/*", swagger.HandlerDefault) // default
+	api := app.Group("/api", logger.New())
 
-	app.Get("/", handler.Hello)
-	app.Get("/Mello", handler.Mello)
+	api.Get("/hello", handler.Hello)
 
 	//routes Videos, Files, Tags
 }

@@ -23,7 +23,4 @@ func SetupMiddleware(app *fiber.App) {
 		Expiration:        30 * time.Second,
 		LimiterMiddleware: limiter.SlidingWindow{},
 	}))
-
-	//Swagger
-	// app.Use(swagger.New())
 }

@@ -11,11 +11,11 @@ import (
 // Config func to get env value
 
 func Config(key string) string {
-	relPath := "../"
-	// load .env file
+	relPath := "..\\"
 	err := godotenv.Load(filepath.Join(relPath, ".env"))
 	if err != nil {
 		fmt.Print("Error loading .env file")
 	}
+
 	return os.Getenv(key)
 }
